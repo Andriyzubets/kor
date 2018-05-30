@@ -1,0 +1,142 @@
+* {
+	transition: all .2s ease-in-out;
+}
+body {
+	position: relative;
+	overflow: hidden;
+}
+video {
+	width: 100vw;
+	height: auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	filter: grayscale(.9);
+}
+a {
+	text-decoration: none;
+}
+.lay1 {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	opacity: 0;
+	background: url(../img/turma.jpg) 50% no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.lay1.active {
+	opacity: 1;
+}
+.main {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	transition: all .2s linear;
+}
+.main:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/grass.jpg) 50% no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	transition: all .9s linear;
+}
+.main.inactive:after {
+	opacity: 0.1;
+}
+.table {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 44vw;
+	padding-top:  67vh;
+	transform: translate(-50%,0);
+	background: url(../img/table.png) 50% no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	z-index: 10;
+}
+.table.inactive {
+	opacity: 0.5;
+	visibility: 0;
+}
+.left {
+	position: absolute;
+	width: 25vw;
+	height: 50vh;
+	background: url(../img/left-arm.png) 50% no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	bottom: 0;
+	left: 14%;
+	transition: all .5s ease-in-out;
+	animation: blame 2s ease-in-out infinite;
+	z-index: 9;
+}
+.left.inactive {
+	opacity: 0.5;
+	visibility: 0;
+	animation: none;
+
+}
+.left:hover {
+	left: 5%;
+	animation: none;
+}
+.left span, .right span {
+	display: none;
+	opacity: 0;
+	transition: all .4s ease-in-out;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 24px;
+	letter-spacing: 4px;
+	text-decoration: none;
+	position: absolute;
+	top: -20%;
+}
+.left span.active, .right span.active {
+	display: block;
+	opacity: 1;
+}
+
+.right {
+	position: absolute;
+	width: 25vw;
+	height: 50vh;
+	background: url(../img/right-arm.png) 50% no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	bottom: 0;
+	right: 14%;
+	transition: all .4s ease-in-out;
+	animation: blame 2s ease-in-out infinite;
+	z-index: 9;
+}
+.right.inactive {
+	opacity: 0.5;
+	visibility: 0;
+	animation: none;
+}
+.right:hover {
+	right: 5%;
+	animation: none;
+}
+@keyframes blame {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: .9;
+		transform: scale(1.01);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
